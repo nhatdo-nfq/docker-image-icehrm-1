@@ -45,8 +45,11 @@ RUN apt-get update && \
     rm -rf /etc/apache2/sites-enabled/000-default.conf /var/www/html && \
     echo 'ServerName $SERVERNAME' >>/etc/apache2/apache2.conf && \
     mv /dev-php.conf /etc/apache2/sites-enabled/ && \
-    mkdir -p $DOCROOT && chown www-data:www-data $DOCROOT && \
-    mkdir -p $WORKDIR && chown www-data:www-data $WORKDIR && \
+    mkdir -p /var/www/dev-php && chown -R www-data:www-data /var/www/dev-php && \
+    mkdir -p /var/www/dev-php && chown -R www-data:www-data /var/www/dev-php && \
+    touch /var/www/dev-php/app/config.php && \
+    mkdir -p /var/www/dev-php/app/data && chown -R www-data:www-data /var/www/dev-php/app/data && \
+    chmod 777 /var/www/dev-php/app/data && \
     mkdir -p /var/www/adminer && \
     curl -sSL https://github.com/vrana/adminer/releases/download/v${ADMINER}/adminer-${ADMINER}-mysql-en.php > /var/www/adminer/index.php && \
     mkdir -p /var/www/phpinfo && mv /info.php /var/www/phpinfo/index.php && \
