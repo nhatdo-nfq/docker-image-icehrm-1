@@ -5,4 +5,5 @@ if [ ! -d "/var/www/dev-php" ]; then
   mkdir -p "/var/www/dev-php"
   chown -R www-data:www-data /var/www/dev-php
 fi
+
 source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND
