@@ -17,7 +17,6 @@ RUN apt-get update && \
     echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main" >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get -y install --no-install-recommends curl nano ca-certificates unzip git \
-    libvips42 libvips-tools \
     apache2 \
     php${PHP} \
     libapache2-mod-php${PHP} \
@@ -56,8 +55,7 @@ RUN apt-get update && \
     apt-get -y purge $BUILD_PACKAGES && \
     apt-get -y autoremove && \
     apt-get -y clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    chmod +x /apache-foreground.sh
+    rm -rf /var/lib/apt/lists/*
 
 EXPOSE 80/tcp \
        443/tcp
