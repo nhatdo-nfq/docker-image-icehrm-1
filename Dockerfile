@@ -17,6 +17,7 @@ RUN apt-get update && \
     echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main" >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get -y install --no-install-recommends curl nano ca-certificates unzip git \
+    # libvips42 libvips-tools \
     apache2 \
     php${PHP} \
     libapache2-mod-php${PHP} \
@@ -45,8 +46,8 @@ RUN apt-get update && \
     rm -rf /etc/apache2/sites-enabled/000-default.conf /var/www/html && \
     echo 'ServerName $SERVERNAME' >>/etc/apache2/apache2.conf && \
     mv /dev-php.conf /etc/apache2/sites-enabled/ && \
-    mkdir -p /var/www/dev-php && chown -R www-data:www-data /var/www/dev-php && \
-    mkdir -p /var/www/dev-php && chown -R www-data:www-data /var/www/dev-php && \
+    mkdir -p $DOCROOT && chown www-data:www-data $DOCROOT && \
+    mkdir -p $WORKDIR && chown www-data:www-data $WORKDIR && \
     mkdir -p /var/www/adminer && \
     curl -sSL https://github.com/vrana/adminer/releases/download/v${ADMINER}/adminer-${ADMINER}-mysql-en.php > /var/www/adminer/index.php && \
     mkdir -p /var/www/phpinfo && mv /info.php /var/www/phpinfo/index.php && \
