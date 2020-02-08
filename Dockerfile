@@ -57,7 +57,8 @@ RUN apt-get update && \
     apt-get -y autoremove && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* && \
-    chmod +x /apache-foreground.sh
+    chmod +x /apache-foreground.sh && \
+    echo "finished"
 
 EXPOSE 80/tcp \
        443/tcp
