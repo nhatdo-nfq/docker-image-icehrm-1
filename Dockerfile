@@ -15,8 +15,8 @@ RUN apt install -y default-jre && apt install -y default-jdk && \
         npm install --global gulp-cli
 
 COPY apache-foreground.sh /
-COPY xdebug.ini /etc/php/7.3/apache2/conf.d/xdebug.ini
-COPY xdebug-cli.ini /etc/php/7.3/cli/conf.d/xdebug.ini
+#COPY xdebug.ini /etc/php/7.3/apache2/conf.d/xdebug.ini
+#COPY xdebug-cli.ini /etc/php/7.3/cli/conf.d/xdebug.ini
 
 RUN php -v
 
