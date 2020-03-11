@@ -14,7 +14,7 @@ RUN apt install -y default-jre && apt install -y default-jdk && \
         npm rm --global gulp && \
         npm install --global gulp-cli
 
-COPY apache-foreground.sh
+COPY apache-foreground.sh /
 
 RUN php -v
 
